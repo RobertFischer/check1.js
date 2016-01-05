@@ -6,31 +6,30 @@
     var string = "Check1";
     storage = localStorage;
     storage.setItem(string, string);
-    storage.remove(string);
+    storage.removeItem(string);
   } catch(e) {
     storage = null;
   }
 
   // Determine our data accessor functions
-  var getValue = hasLocalStorage ?
+  var getValue = storage ?
     function getLocalStorageValue(name) {
       return storage.getItem(name); // storage.getItem.bind(storage) requires IE >= 9
     }
     :
     function getCookieValue(name) {
       var result = document.cookie.match('(^|;)\\s*' + encodeURIComponent(name) + '\\s*=\\s*([^;]+)');
-      return result ? decodeURIComponent(result.pop()) : result;
+      return result ? decodeURIComponent(result.pop()) : null;
     }
   ;
 
-  var setValue = hasLocalStorage ?
+  var setValue = storage ?
     function setLocalStorageValue(name, value) {
       storage.setItem(name, value);
     }
     :
     function setCookieValue(name, value) {
       document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-      return value;
     }
   ;
 
@@ -49,7 +48,7 @@
 
     // If we have a previous value, just feed that into the result callback and be done.
     var previousValue = getValue(key);
-    if(previousValue) {
+    if(previousValue !== null) {
       resultCallback(JSON.parse(previousValue));
       return;
     }

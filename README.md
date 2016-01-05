@@ -11,5 +11,5 @@ Here's the classic example: you want to check if the client is mobile in order t
 which is going to slow down the page load and piss people off as their batteries drain away. You have a library for detecting if you're on a mobile device, but the library
 itself is non-trivial (eg: the minified `Detect-Mobile` library is still 15k).
 
-Use *Check1*, and you will only load `Detect-Mobile` the very first time. Every other access to the page will use the cached value. This script minifies does to less than 1k,
+Use *Check1*, and you will only load `Detect-Mobile` the very first time. Every other access to the page will use the cached value. This script minifies to less than 1k,
 so you are having significant savings.
