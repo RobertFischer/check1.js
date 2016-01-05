@@ -14,6 +14,8 @@ itself is non-trivial (eg: the minified `Detect-Mobile` library is still 15k).
 Use *Check1*, and you will only load `Detect-Mobile` the very first time. Every other access to the page will use the cached value. This script minifies to about 1000
 characters, so you are having significant savings.
 
+Compatible with IE 7 and above, and everything else.
+
 How It Works
 --------------
 
