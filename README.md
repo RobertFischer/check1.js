@@ -12,7 +12,8 @@ which is going to slow down the page load and piss people off as their batteries
 itself is non-trivial (eg: the minified `Detect-Mobile` library is still 15k).
 
 Use *Check1*, and you will only load `Detect-Mobile` the very first time. Every other access to the page will use the cached value. This script minifies to about 1000
-characters, so you are having significant savings.
+characters, so you are having significant savings in JavaScript processing load over bringing down `Detect-Mobile` every time. Even better, you're not having to actually
+execute the detection code each time the page loads: you're just loading the data from the browser's memory forever after that initial detection attempt.
 
 Compatible with IE 7 and above, and everything else.
 
