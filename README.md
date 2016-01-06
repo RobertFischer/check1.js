@@ -67,4 +67,4 @@ The result of `resultCheck()` (hereafter, `result`) will be cached into the key 
 The `resultCallback(result)` call is guaranteed to be completed before any subsequent `<script>` tags are executed.  It may or may not
 be executed before the `Check1(...)` call resolves.
 
-<sub>(Yes, I'm [releasing Zalgo](http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony#posts). It'll be okay, I promise.)</sub>
+<sub>(Yes, I'm [releasing Zalgo](http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony#posts). It'll be okay, I promise. I put Zalgo in a cage.)</sub>
