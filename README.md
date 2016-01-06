@@ -62,6 +62,6 @@ Check1(
 )
 ```
 
-The result of `resultCheck()` (hereafter, `result`) will be cached into the key `key`, either in `localStorage` or `document.cookies`.
+The result of `resultCheck()` (hereafter, `result`) will be cached into the key `"Check1\t" + key`, either in `localStorage` or `document.cookies`.
 The `resultCallback(result)` call is guaranteed to be completed before any subsequent `<script>` tags are executed.  It may or may not
 be executed before the `Check1(...)` call resolves.
