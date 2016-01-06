@@ -66,3 +66,5 @@ Check1(
 The result of `resultCheck()` (hereafter, `result`) will be cached into the key `"Check1\t" + key`, either in `localStorage` or `document.cookies`.
 The `resultCallback(result)` call is guaranteed to be completed before any subsequent `<script>` tags are executed.  It may or may not
 be executed before the `Check1(...)` call resolves.
+
+<sub>(Yes, I'm [releasing Zalgo](http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony#posts). It'll be okay, I promise.)</sub>
