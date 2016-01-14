@@ -9,10 +9,11 @@ you should only load those scripts if you need to. Enter *Check1*.
 
 Here's the classic example: you want to check if the client is mobile in order to prevent the mobile device from loading a bunch of additional JPEGs and performing polling,
 which is going to slow down the page load and piss people off as their batteries drain away. You have a library for detecting if you're on a mobile device, but the library
-itself is non-trivial (eg: the minified `Detect-Mobile` library is still 15k).
+itself is non-trivial (eg: the minified `Detect-Mobile.js` library is still 36k).
 
-Use *Check1*, and you will only load `Detect-Mobile` the very first time. Every other access to the page will use the cached value. This script minifies to about 1000
-characters, so you are having significant savings in JavaScript processing load over bringing down `Detect-Mobile` every time. Even better, you're not having to actually
+Use *Check1*, and you will only load `Detect-Mobile.js` the very first time the browser hits the host. Every other access to the page will use the cached value.
+This script minifies to less than 1k in size, so you are having significant savings in JavaScript processing load over bringing down `Detect-Mobile.js` every
+time. Even better, you're not having to actually
 execute the detection code each time the page loads: you're just loading the data from the browser's memory forever after that initial detection attempt.
 
 Compatible with IE 7 and above, and everything else.
