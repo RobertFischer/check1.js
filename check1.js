@@ -1,6 +1,8 @@
 (function() {
   var localWindow = window;
   var localDocument = document;
+  var encode = encodeURIComponent;
+  var decode = decodeURIComponent;
   var prefix = "Check1\t" + localWindow.navigator.userAgent + "\t";
 
   // Detect if we have local storage, or if we have to use a cookie
@@ -20,8 +22,8 @@
     }
     :
     function getCookieValue(name) {
-      var result = localDocument.cookie.match('(^|;)\\s*' + encodeURIComponent(name) + '\\s*=\\s*([^;]+)');
-      return result ? decodeURIComponent(result.pop()) : null;
+      var result = localDocument.cookie.match('(^|;)\\s*' + encode(name) + '\\s*=\\s*([^;]+)');
+      return result ? decode(result.pop()) : null;
     }
   ;
 
@@ -31,7 +33,7 @@
     }
     :
     function setCookieValue(name, value) {
-      localDocument.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+      localDocument.cookie = encode(name) + "=" + encode(value) + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
     }
   ;
 
