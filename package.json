@@ -1,0 +1,28 @@
+{
+  "name": "check1.js",
+  "version": "1.0.0",
+  "description": "Avoid repeatedly loading scripts to perform one-time checks in the browser.",
+  "main": "check1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobertFischer/check1.js.git"
+  },
+  "keywords": [
+    "browser",
+    "frontend",
+    "cache",
+    "minification",
+    "speed",
+    "site",
+    "performance"
+  ],
+  "author": "Robert Fischer",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/RobertFischer/check1.js/issues"
+  },
+  "homepage": "https://github.com/RobertFischer/check1.js/blob/master/README.md"
+}

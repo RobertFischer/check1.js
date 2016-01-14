@@ -74,4 +74,4 @@
 
   };
 
-})(this);
+})(typeof module === 'undefined' ? this : (module.exports={}));
