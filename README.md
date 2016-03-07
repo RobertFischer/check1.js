@@ -56,7 +56,8 @@ Synopsis
 ```
 
 *Usage with Implicit Variable (New Check1)*
-_Available as of 1.1.0_
+
+<sub>Available as of 1.1.0</sub>
 
 ```html
 <html>
