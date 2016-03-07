@@ -6,7 +6,7 @@
     </script>
     <script>
       Check1(
-          "isMobile",
+          "isMobileClassic",
           "https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.1/mobile-detect.js",
           function() {
             var md = new MobileDetect(window.navigator.userAgent);
@@ -16,10 +16,18 @@
             alert("You are mobile! (That's a " + result + " statement.)");
           }
       );
+      Check1(
+        "isMobile",
+        "https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.1/mobile-detect.js",
+        function() {
+          var md = new MobileDetect(window.navigator.userAgent);
+          return !!md.mobile();
+        }
+      );
       alert("After the call to check");
     </script>
     <script>
-      alert("After the check script tag");
+      alert("After the check script tag, and this is window.isMobile: " + window.isMobile);
     </script>
   </head>
   <body>

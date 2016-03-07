@@ -45,9 +45,15 @@
   localWindow.Check1 = function(key, src, resultCheck, resultCallback) {
     if(!key) throw "Check1 requires a first argument, which is the key where we should store the results";
     if(!resultCheck) throw "Check1 requires a third argument, which is the callback to execute if a check is needed";
-    if(!resultCallback) throw "Check1 requires a fourth argument, which is the function that will get the result";
+    if(!resultCallback) {
+      var myKey = key.slice(0);
+      resultCallback = function(result) {
+        localWindow[myKey] = result;
+      };
+    }
 
     // Prepend "Check1\t" to the key, just for good measure
+    // Make sure we do this *AFTER* we construct the default resultCallback, or we hose up the key.
     key = prefix + key;
 
     // If we have a previous value, just feed that into the result callback and be done.

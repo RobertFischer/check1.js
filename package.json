@@ -1,6 +1,6 @@
 {
   "name": "check1.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Avoid repeatedly loading scripts to perform one-time checks in the browser.",
   "main": "check1.js",
   "scripts": {

@@ -31,6 +31,9 @@ You can see it in action in `demo.html`. Set breakpoints to your heart's content
 Synopsis
 ---------
 
+
+*Usage with Explicit Variable (Check1 Classic)*
+
 ```html
 <html>
   <head>
@@ -52,6 +55,27 @@ Synopsis
     ...
 ```
 
+*Usage with Implicit Variable (New Check1)*
+_Available as of 1.1.0_
+
+```html
+<html>
+  <head>
+    <script src="check1.js"></script>
+    <script>
+      Check1(
+        "isMobile",
+        "https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.1/mobile-detect.js",
+        function() {
+          var md = new MobileDetect(window.navigator.userAgent);
+          return !!md.mobile();
+        }
+      );
+    </script>  <!-- IMPORTANT: Needs to be its own script tag. -->
+    <!-- All subsequent JS can use "window.isMobile" to access the result -->
+    ...
+```
+
 Usage
 --------
 
@@ -60,7 +84,7 @@ Check1(
   key, // string name of the location where we will cache the result (prepended with "Check1\t")
   src, // string url of JS file to load if we need to check (may be `null` if you don't want to load anything)
   resultCheck, // the no-argument function that performs the result check, run after the JS file is loaded
-  resultCallback // the one-argument function passed the result of the check, whether or not is was performed on this page load
+  resultCallback // the optional one-argument function passed the result of the check, whether or not is was performed on this page load
 )
 ```
 
@@ -69,3 +93,11 @@ The `resultCallback(result)` call is guaranteed to be completed before any subse
 be executed before the `Check1(...)` call resolves.
 
 <sub>(Yes, I'm [releasing Zalgo](http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony#posts). It'll be okay, I promise. I put Zalgo in a cage.)</sub>
+
+If you do not pass in a `resultCallback`, the default callback is equivalent to this:
+
+```javascript
+function(result) {
+  window[key] = result;
+}
+```
