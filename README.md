@@ -33,7 +33,6 @@ Synopsis
 
 
 *Usage with Explicit Variable (Check1 Classic)*
-
 ```html
 <html>
   <head>
@@ -56,9 +55,6 @@ Synopsis
 ```
 
 *Usage with Implicit Variable (New Check1)*
-
-<sub>Available as of 1.1.0</sub>
-
 ```html
 <html>
   <head>
@@ -76,6 +72,7 @@ Synopsis
     <!-- All subsequent JS can use "window.isMobile" to access the result -->
     ...
 ```
+<sub>Available as of 1.1.0</sub>
 
 Usage
 --------
