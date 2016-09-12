@@ -5,14 +5,14 @@ Use Case #1: Check Once and Be Done
 ------------------------------------
 
 If you want to check something about the client, you should only perform that check once.  If you're loading Modernizr or some other library to perform that check,
-you should only load those scripts a single time for a given user agent, and save 
+you should only load those scripts a single time for a given user agent, and save
 yourself the overhead every other time. Enter *Check1*.
 
 Here's the classic example: you want to check if the client is mobile in order to prevent the mobile device from loading a bunch of additional JPEGs and performing polling.
 You have a library for detecting if you're on a mobile device, but the library
-itself is non-trivial (eg: the minified `Detect-Mobile.js` library is still 36k).  
+itself is non-trivial (eg: the minified `Detect-Mobile.js` library is still 36k).
 
-Use *Check1*, and you will only load that library the very first time a given browser 
+Use *Check1*, and you will only load that library the very first time a given browser
 hits the host. Every other access to the page will use the cached value.
 This script minifies to less than 1k in size, so you are having significant savings in JavaScript processing load compared to bringing down and parsing that library every
 time. Even better, you're not having to actually
@@ -23,22 +23,22 @@ Use Case #2: One-And-Done JS/API Calls
 
 Another great use for *Check1* is performing one-time API calls. If you have data that
 very rarely changes, you can use *Check1* to cache the result of that API call for you,
-preventing unnecessary round-trips. 
+preventing unnecessary round-trips.
 
 Say, for instance, that you want to ping an API whenever there is a unique visitor
 to your website, and they get back a unique user token so that you can track their
 subsequent API calls. You can have *Check1* make the call to get that unique user token,
-and then it will cache it forever for this user. Different users of the browsers or 
+and then it will cache it forever for this user. Different users of the browsers or
 dropping into a privacy-enhanced mode will end up fetching their own API keys, which
 is exactly the behavior you want!
 
 Or say that you have monthly deals or seasonal offerings. You can have *Check1* retrieve
-those and generate the relevant DOM content. That DOM content will then be cached 
+those and generate the relevant DOM content. That DOM content will then be cached
 forever. To enable an automatic refresh, add the month or the season into the key
-you provide *Check1*.  New month or new season? New key. 
+you provide *Check1*.  New month or new season? New key.
 New key means a new fetch of the data. This is exactly the behavior you want.
 
-<sup>(Don't worry, your old values will be purged from the user's cache 
+<sup>(Don't worry, your old values will be purged from the user's cache
 whenever their browser needs to make space.)</sup>
 
 Compatibility
