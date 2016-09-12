@@ -48,7 +48,7 @@
     if(!resultCallback) {
       var myKey = key.slice(0);
       resultCallback = function(result) {
-        localWindow[myKey] = result;
+        localWindow.Check1[myKey] = result;
       };
     }
 

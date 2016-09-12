@@ -69,7 +69,7 @@ Synopsis
         }
       );
     </script>  <!-- IMPORTANT: Needs to be its own script tag. -->
-    <!-- All subsequent JS can use "window.isMobile" to access the result -->
+    <!-- All subsequent JS can use "Check1.isMobile" to access the result -->
     ...
 ```
 <sub>Available as of 1.1.0</sub>
